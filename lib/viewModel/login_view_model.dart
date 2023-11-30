@@ -1,11 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
-import 'package:proto/services/navigation_service.dart';
-import 'package:proto/services/route_service.dart';
+import 'package:proto/core/base_view_model.dart';
+import 'package:proto/core/services/services.dart';
 
-class LoginViewModel extends GetxController {
-  NavigationService navigationService = NavigationService();
+class LoginViewModel extends BaseViewModel {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

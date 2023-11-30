@@ -1,15 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:proto/constants/constants.dart';
-import 'package:proto/services/route_service.dart';
 import 'package:proto/ui/src/extension/extension.dart';
 import 'package:proto/ui/src/widgets/proto_button.dart';
 import 'package:proto/ui/src/widgets/proto_sceen_layout.dart';
 import 'package:proto/ui/src/widgets/proto_text_field.dart';
-import 'package:proto/viewModel/login_viewModel.dart';
+import 'package:proto/viewModel/login_view_model.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);

@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:proto/core/services/services.dart';
 import 'package:proto/firebase_options.dart';
-import 'package:proto/services/navigation_service.dart';
-import 'package:proto/services/route_service.dart';
-import 'package:proto/viewModel/binding_viewModel.dart';
+import 'package:proto/viewModel/binding_view_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
               initialRoute: AppRoutes.loginScreen,
               initialBinding: BaseBinding(),
               navigatorKey: NavigationService.navigatorKey,
+              builder: EasyLoading.init(),
               onGenerateRoute: (settings) =>
                   OnGenerateRoutes.generateRoute(settings),
               debugShowCheckedModeBanner: false);

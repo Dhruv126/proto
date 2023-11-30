@@ -16,3 +16,10 @@ class AuthStrings {
   static const String already_account = "Already have an account?";
   static const String not_have_account = "Don't have an account?";
 }
+
+class ErrorStrings {
+  static const String? noInternetConnection =
+      'Could not connect to the sever. Check the internet connection and try again';
+
+  static const String? serverError = "Something went wrong";
+}

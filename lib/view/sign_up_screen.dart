@@ -7,7 +7,7 @@ import 'package:proto/ui/src/extension/extension.dart';
 import 'package:proto/ui/src/widgets/proto_button.dart';
 import 'package:proto/ui/src/widgets/proto_sceen_layout.dart';
 import 'package:proto/ui/src/widgets/proto_text_field.dart';
-import 'package:proto/viewModel/signup_viewModel.dart';
+import 'package:proto/viewModel/signup_view_model.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({Key? key}) : super(key: key);
