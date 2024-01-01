@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 import 'package:proto/constants/constants.dart';
 
 class LoadingOverlayService {
@@ -29,5 +31,17 @@ class LoadingOverlayService {
 
   void hide() {
     EasyLoading.dismiss();
+  }
+}
+
+class LoadingWithGet {
+  static show(){
+    FocusScope.of(Get.context!).unfocus();
+    return Get.context!.loaderOverlay.show(widgetBuilder: (progress) => CircularProgressIndicator(),);
+  }
+
+  static hide(){
+    FocusScope.of(Get.context!).unfocus();
+    return Get.context!.loaderOverlay.hide();
   }
 }

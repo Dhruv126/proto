@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 import 'package:proto/core/services/services.dart';
 import 'package:proto/firebase_options.dart';
 import 'package:proto/viewModel/binding_view_model.dart';
@@ -25,14 +26,16 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
-          return GetMaterialApp(
-              initialRoute: AppRoutes.loginScreen,
-              initialBinding: BaseBinding(),
-              navigatorKey: NavigationService.navigatorKey,
-              builder: EasyLoading.init(),
-              onGenerateRoute: (settings) =>
-                  OnGenerateRoutes.generateRoute(settings),
-              debugShowCheckedModeBanner: false);
+          return GlobalLoaderOverlay(
+            child: GetMaterialApp(
+                initialRoute: AppRoutes.loginScreen,
+                initialBinding: BaseBinding(),
+                navigatorKey: NavigationService.navigatorKey,
+                builder: EasyLoading.init(),
+                onGenerateRoute: (settings) =>
+                    OnGenerateRoutes.generateRoute(settings),
+                debugShowCheckedModeBanner: false),
+          );
         });
   }
 }
