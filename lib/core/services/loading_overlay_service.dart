@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:get/get.dart';
-import 'package:loader_overlay/loader_overlay.dart';
 import 'package:proto/constants/constants.dart';
 
 class LoadingOverlayService {
@@ -15,7 +13,7 @@ class LoadingOverlayService {
       ..progressColor = Colors.transparent
       ..textColor = Colors.transparent;
 
-    final opacity = 0.8;
+    const opacity = 0.8;
     final maskColor = dark
         ? AppColors.appBlue.withOpacity(opacity)
         : AppColors.appWhite.withOpacity(opacity);
@@ -23,7 +21,7 @@ class LoadingOverlayService {
     EasyLoading.instance.maskColor = maskColor;
     EasyLoading.show(
         maskType: EasyLoadingMaskType.custom,
-        indicator: CircularProgressIndicator(
+        indicator: const CircularProgressIndicator(
           color: AppColors.appBlue,
           strokeWidth: 2,
         ));
@@ -34,14 +32,14 @@ class LoadingOverlayService {
   }
 }
 
-class LoadingWithGet {
-  static show(){
-    FocusScope.of(Get.context!).unfocus();
-    return Get.context!.loaderOverlay.show(widgetBuilder: (progress) => CircularProgressIndicator(),);
-  }
-
-  static hide(){
-    FocusScope.of(Get.context!).unfocus();
-    return Get.context!.loaderOverlay.hide();
-  }
-}
+// class LoadingWithGet {
+//   static show(){
+//     FocusScope.of(Get.context!).unfocus();
+//     return Get.context!.loaderOverlay.show(widgetBuilder: (progress) => CircularProgressIndicator(),);
+//   }
+//
+//   static hide(){
+//     FocusScope.of(Get.context!).unfocus();
+//     return Get.context!.loaderOverlay.hide();
+//   }
+// }

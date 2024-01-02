@@ -1,17 +1,13 @@
-// To parse this JSON data, do
-//
-//     final countiresResponseModel = countiresResponseModelFromJson(jsonString);
-
 import 'dart:convert';
 
-List<CountiresResponseModel> countiresResponseModelFromJson(String str) =>
-    List<CountiresResponseModel>.from(
-        json.decode(str).map((x) => CountiresResponseModel.fromJson(x)));
+List<CountriesResponseModel> countriesResponseModelFromJson(String str) =>
+    List<CountriesResponseModel>.from(
+        json.decode(str).map((x) => CountriesResponseModel.fromJson(x)));
 
-String countiresResponseModelToJson(List<CountiresResponseModel> data) =>
+String countriesResponseModelToJson(List<CountriesResponseModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class CountiresResponseModel {
+class CountriesResponseModel {
   String? name;
   String? code;
   FlagUrls? flagUrls;
@@ -23,7 +19,7 @@ class CountiresResponseModel {
   String? tourismSlogan;
   List<double>? boundingbox;
 
-  CountiresResponseModel({
+  CountriesResponseModel({
     this.name,
     this.code,
     this.flagUrls,
@@ -36,8 +32,8 @@ class CountiresResponseModel {
     this.boundingbox,
   });
 
-  factory CountiresResponseModel.fromJson(Map<String, dynamic> json) =>
-      CountiresResponseModel(
+  factory CountriesResponseModel.fromJson(Map<String, dynamic> json) =>
+      CountriesResponseModel(
         name: json["name"],
         code: json["code"],
         flagUrls: json["flag_urls"] == null
