@@ -27,16 +27,15 @@ class APIService {
     }
         : */
         {
-          // 'Content-Type': 'application/json',
-          'X-BLOBR-KEY' : 'MtlFUPk9gpLyz3AOUNpHNveJHe1Usbm8',
-        };
+      // 'Content-Type': 'application/json',
+      'X-BLOBR-KEY': 'MtlFUPk9gpLyz3AOUNpHNveJHe1Usbm8',
+    };
 
     // print("Bearer ${GetStorageServices.getBarrierToken()}");
 
     try {
       if (type == apiType.aGet) {
-        final result =
-            await http.get(Uri.parse(url), headers: headers);
+        final result = await http.get(Uri.parse(url), headers: headers);
         response = returnResponse(result.statusCode, result.body);
         log("RES status code ${result.statusCode}");
         log("res${result.body}");
@@ -99,8 +98,7 @@ class APIService {
       print("REQUEST PARAMETER url  $url");
       print("REQUEST PARAMETER $body");
 
-      final request =
-          await http.MultipartRequest("PUT", Uri.parse(url));
+      final request = await http.MultipartRequest("PUT", Uri.parse(url));
 
       request.headers.addAll(headers);
 
@@ -127,7 +125,7 @@ class APIService {
     return response;
   }
 
-  Future getPostResponse(
+  Future getMultipartRequest(
       {required String url,
       required apiType type,
       Map<String, dynamic>? body,
@@ -145,8 +143,7 @@ class APIService {
       print("REQUEST PARAMETER url  $url");
       print("REQUEST PARAMETER $body");
 
-      final request =
-          await http.MultipartRequest("POST", Uri.parse(url));
+      final request = await http.MultipartRequest("POST", Uri.parse(url));
 
       request.headers.addAll(headers);
 
