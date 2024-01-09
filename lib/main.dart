@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:proto/core/services/services.dart';
 import 'package:proto/firebase_options.dart';
 import 'package:proto/viewModel/binding_view_model.dart';
+import 'package:proto/viewModel/home_view_model.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,19 +22,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-        designSize: const Size(360, 690),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (context, child) {
-          return GetMaterialApp(
-              initialRoute: AppRoutes.homeScreen,
-              initialBinding: BaseBinding(),
-              navigatorKey: NavigationService.navigatorKey,
-              builder: EasyLoading.init(),
-              onGenerateRoute: (settings) =>
-                  OnGenerateRoutes.generateRoute(settings),
-              debugShowCheckedModeBanner: false);
-        });
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => HomeViewModel()),
+      ],
+      child: ScreenUtilInit(
+          designSize: const Size(360, 690),
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (context, child) {
+            return GetMaterialApp(
+                initialRoute: AppRoutes.homeScreen,
+                initialBinding: BaseBinding(),
+                navigatorKey: NavigationService.navigatorKey,
+                builder: EasyLoading.init(),
+                onGenerateRoute: (settings) =>
+                    OnGenerateRoutes.generateRoute(settings),
+                debugShowCheckedModeBanner: false);
+          }),
+    );
   }
 }
